@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Upload Download File Examples</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/uploaddownloadfiles.js"></script>
+</head>
+<body>
+	<div class="container" style="float: right;;" >
+		<div class="row">
+			<div class="col-sm-7" style="background-color:#e6fffa;margin:0 auto; padding:10px; border-radius:3px;float: right;" >
+				<h3 style="float: right;">بارگذاری تصویر</h3>
+				<form id="uploadSingleFileForm" >
+					<br>
+					<br>
+					<br>
+					<div class="form-group" >
+						<label class="control-label" for="uploadfile" style="float: right;">:انتخاب تصویر</label>
+						<input type="file" class="form-control" id="filesingle"
+								placeholder="Choose a upload file" name="file" required></input>
+								<hr>
+								<label class="control-label" style="float: right;padding-right: 5;"  for="selectpicker">:انتخاب هنرمند </label>
+								<br>
+							<br>
+								<select class="selectpicker"  style="float: right;padding-right: 5;"  dir="rtl" data-style="btn-info" name="artistpicker" id="artistpicker1" >
+									<optgroup label="Select artist">
+									  <option name="" value="">هنرمند</option>
+									  <option name="table1" value="1">امیرخانی</option>
+									  <option name="table2" value="2">سادات نژاد</option>
+									  <option name="table3" value="3">اخوین</option>
+									  <option name="table3" value="4">زدوار</option>
+									  <option name="table3" value="5">حقانی</option>
+									</optgroup>
+								</select>
+								<br>
+								<hr>
+								<label class="control-label"  style="float: right;"  for="selectpicker">: انتخاب قالب</label>
+								<br>
+								<br>
+								<select class="selectpicker" style="float: right;" dir="ltr"  data-style="btn-info" name="caligformpicker" id="caligformpicker1" >
+									<optgroup label="Select artist">
+									  <option name="" value="">قالب</option>
+									  <option name="table1" value="1">سیاه مشق</option>
+									  <option name="table2" value="2">چلیپا</option>
+									  <option name="table3" value="3">قطعه</option>
+									  <option name="table3" value="4">کتابت</option>
+									</optgroup>
+
+								</select>
+					</div>
+					<br>
+					<button type="submit" class="btn btn-danger" style="float: right;" id="btnUploadSingleFileSubmit">تایید</button>
+				</form><br><br>
+				<div id="response" style="display:none">
+				</div>
+			</div>
+		</div>
+		<hr>		
+		
+	</div>
+</body>
+</html>
