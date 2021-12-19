@@ -9,10 +9,14 @@ const db = knex(
   {
       client: 'pg',
       connection: {
-          host: 'localhost',
-          user: 'postgres',
-          password: '123@123',
-          database: 'fahlav_poetry',
+          host: 'ec2-184-73-25-2.compute-1.amazonaws.com',
+          user: 'icohhpaxgwxryx',
+          password: '2768331444d523baadc9f51401aea3e343c519a052851429b8f25c10481e5740',
+          database: 'desjo7vusbeeqk',
+		   
+  ssl: {
+    rejectUnauthorized: false
+  }
       },
   }
 );
@@ -274,22 +278,48 @@ exports.listAllArtists = (req, res) => {
 	// 	}
 	//   );
 
-	Artists2.findAll({attributes: ['id', 'name']}).then(artists1 => {
 
-		const fileInfo = [];
+	return db
+	  .select("*")
+	  .from("artists").
+	//   .then(rows => rows).then(data => {
+	// 	res.send(data);
+	//   });
+	then(files => {
 
-		//console.log(files);
+				const fileInfo = [];
+				console.log(files);
+				for(let i=0; i<files.length; i++){
+					fileInfo.push({
+					id:	files[i].id,
+						name:files[i].name
+						,lifetime:files[i].lifetime
+					})
+				}
+		
+				res.json(fileInfo);
+			}).catch(err => {
+				console.log(err);
+				res.json({msg: 'Error', detail: err});
+			});
+ 
+
+	// Artists2.findAll({attributes: ['id', 'name']}).then(artists1 => {
+
+	// 	const fileInfo = [];
+
+	// 	//console.log(files);
 	  
-		for(let i=0; i<artists1.length; i++){
-			fileInfo.push({
-			id:	artists1[i].id,
-				name:artists1[i].name
-			})
-		}
-		console.log(fileInfo);
-	    res.json(fileInfo);
-	}).catch(err => {
-		console.log(err);
-		res.json({msg: 'Error', detail: err});
-	});
+	// 	for(let i=0; i<artists1.length; i++){
+	// 		fileInfo.push({
+	// 		id:	artists1[i].id,
+	// 			name:artists1[i].name
+	// 		})
+	// 	}
+	// 	console.log(fileInfo);
+	//     res.json(fileInfo);
+	// }).catch(err => {
+	// 	console.log(err);
+	// 	res.json({msg: 'Error', detail: err});
+	// });
 }
