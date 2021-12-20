@@ -194,7 +194,8 @@ exports.listAllFiles = (req, res) => {
 							type: files[i].type,
 							//data: files[i].data,
 							artistid: files[i].artistid,
-							caligformid: files[i].caligformid
+							caligformid: files[i].caligformid,
+							description:files[i].description
 							//url: "http://localhost:8080/api/file/" + files[i].dataValues.id
 						})
 					}
